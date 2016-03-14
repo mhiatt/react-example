@@ -9,13 +9,15 @@
   "author": "Myles Hiatt",
   "license": "ISC",
   "dependencies": {
+    "firebase": "^2.4.1",
+    "flux": "^2.1.1",
     "history": "^1.17.0",
+    "lodash": "^4.6.1",
     "material-ui": "^0.14.4",
     "react": "^0.14.6",
     "react-dom": "^0.14.6",
     "react-router": "^1.0.3",
-    "react-tap-event-plugin": "^0.2.2",
-    "webpack-hot-middleware": "^2.7.1"
+    "react-tap-event-plugin": "^0.2.2"
   },
   "devDependencies": {
     "babel-loader": "^6.2.0",
