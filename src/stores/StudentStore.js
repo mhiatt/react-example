@@ -18,7 +18,11 @@ class StudentStore extends EventEmitter {
     return this.students;
   }
 
-  getOne(id) {
+  getOne(id, cb) {
+    if (cb) {
+      return cb(this.students[id]);
+    }
+
     return this.students[id];
   }
 
@@ -26,22 +30,18 @@ class StudentStore extends EventEmitter {
     switch (action.type) {
       case 'CREATE_STUDENT': {
         this.emit('change');
-        console.log('C');
         break;
       }
       case 'UPDATE_STUDENT': {
         this.emit('change');
-        console.log('U');
         break;
       }
       case 'RECEIVE_STUDENTS': {
         this.students = action.students;
-        console.log('R');
         this.emit('change');
         break;
       }
       case 'DELETE_STUDENT': {
-        console.log('D');
         this.emit('change');
         break;
       }

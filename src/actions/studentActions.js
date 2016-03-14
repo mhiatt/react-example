@@ -17,7 +17,6 @@ export function deleteStudent(id) {
   const ref = new Firebase('https://dazzling-inferno-5136.firebaseio.com/' + id);
 
   ref.remove(() => {
-    console.log('Delete callback');
     dispatcher.dispatch({
       type: 'REMOVED_STUDENT'
     });

@@ -34,9 +34,13 @@ export default class Student extends React.Component {
   }
 
   componentDidMount() {
-    this.setState({
-      student: StudentStore.getOne(this.props.params.id),
+
+    StudentStore.getOne(this.props.params.id, (res) => {
+      this.setState({
+        student: res,
+      });
     });
+
   }
 
   componentWillUnmount() {
@@ -140,6 +144,7 @@ export default class Student extends React.Component {
           <TextField
             id="firstName"
             hintText={student.name.first}
+            defaultValue={student.name.first}
             floatingLabelText="First Name"
             onChange={this.setValues.bind(this)}
             style={textFieldStyle}
@@ -147,6 +152,7 @@ export default class Student extends React.Component {
           <TextField
             id="lastName"
             hintText={student.name.last}
+            defaultValue={student.name.last}
             floatingLabelText="Last Name"
             onChange={this.setValues.bind(this)}
             style={textFieldStyle}
@@ -154,6 +160,7 @@ export default class Student extends React.Component {
           <TextField
             id="age"
             hintText={student.age}
+            defaultValue={student.age}
             floatingLabelText="Age"
             onChange={this.setValues.bind(this)}
             style={textFieldStyle}
